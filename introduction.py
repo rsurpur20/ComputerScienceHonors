@@ -1,15 +1,15 @@
 # Roshni Surpur
 #9/7/18
-# Prompt:For this homework, write a program that will have a 
-# conversation with you. It should ask you questions and 
+# Prompt:For this homework, write a program that will have a
+# conversation with you. It should ask you questions and
 # respond in some way.
-# This code asks for a name and whether or not the user 
+# This code asks for a name and whether or not the user
 # has a pet and responds a certain way.
 
 username=input("what is your name? \n")
 print("hello " + username + "!")
 # favpet=input("Do you have any pets?")
-
+# testing github
 def userinput():
 	favpet=input("Do you have any pets?")
 	if favpet=="yes":
