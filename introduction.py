@@ -9,7 +9,7 @@
 username=input("what is your name? \n")
 print("hello " + username + "!")
 # favpet=input("Do you have any pets?")
-# testing github
+
 def userinput():
 	favpet=input("Do you have any pets?")
 	if favpet=="yes":
