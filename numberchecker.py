@@ -1,3 +1,6 @@
+# Roshni Surpur
+# 9/13/2018
+
 # Compose  a  program  that  takes  three  floats  x,  y,  and  z  as  command-line  arguments
 # and  writes  True  if  the  values  are  strictly  ascending  or  descending
 # (x  <  y  <  zorx  >  y  >  z),  and  False otherwise.  You  may  need  to  look  into

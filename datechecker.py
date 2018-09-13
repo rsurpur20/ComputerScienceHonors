@@ -1,3 +1,6 @@
+# Roshni Surpur
+# 9/13/2018
+
 # Compose  a  program  that  accepts  a  date  as  input  and  writes  the  day
 #of  the  week  on  which  that  date  falls.
 # Your  program  should  accept  three  command-line  arguments:  m  (month),  d  (day),
@@ -27,46 +30,3 @@ m0 = m + 12 * math.floor((14 - m) / 12) - 2
 d0 = d + math.floor(x + (31*m0)/12) % 7
 print(d0)
 # started working from 1956 onwards. before this year, this code doesn't work, going forward by  one day
-
-
-# year1=(year-(14-month))/12
-# x=(year1)+(year1/4)-(year1/100)+(year1/400)
-# month1=(month)+(12)*((14-month)/12)-(2)
-# day1= ((day)+(x)+(31*month1)/12)%7
-# y0  =  y  -  ((14  -  m)  /  12)
-# x  =  y0  +  (y0/4)  -  (y0/100) +  (y0/400)
-# m0  =  m  +  12  *  ((14  -  m)  /  12) -2
-# d0  =  (d  +  x  +  ((31*m0)/  12))% 7
-#
-
-# y0 = y - (math.floor((14 - m) / 12))
-# # print(y0)
-# x = y0 + y0/4 - y0/100 + y0/400
-#
-# m0 = m + 12 * math.floor((14 - m) / 12) - 2
-# # print(m0)
-# # d0 = d + x + (31*m0)/12 % 7
-# # print(d0)
-# # d0 = d + x + math.floor(31*m0)/12 % 7
-# # print(d0)
-# # d0 = d + x + math.floor((31*m0)/12) % 7
-# # print(d0)
-# d0 = d + math.floor(x + (31*m0)/12) % 7
-# print(d0)
-# print(d0)
-# d0 = int(d + x + (31*m0)/12)% 7
-# print(d0)
-
-
-
-
-# 8+12*((14-8)/12)-2
-# 8+12*(1/2)-2
-# 8+6-2=12=m0
-# d0=13+
-#August  2,  1953
-# y  =  1953  -  0  =  1953     y=1953- ((14-8)/12)   = 1953 -(6/12)
-# x  =  1953  +  1953/4  -  1953/100  +  1953/400  =  2426
-#  m  =  8  +  12*0  -  2  =  6
-#d  =  (2  +  2426  +  (31*6)  /  12)% 7  =  2443
-#mod  7  =  0  (Sunday)
