@@ -22,3 +22,8 @@ print("heyo, "+name+"!")
 #     if x!= len(sys.argv): #if the entry is not the last entry
 #         print(",", end='')
 # print()
+
+
+#sources:
+# www.python.org
+# wiki.python.org
