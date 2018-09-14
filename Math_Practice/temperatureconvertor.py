@@ -17,10 +17,14 @@ import math
 temp=float(sys.argv[1])
 windspeed= float(sys.argv[2])
 #so python3 temperatureconvertor.py 34 56  this means 34 degrees farenheit and 56 mph
+print("\nDetected Arguments: ")
+print("Temperature: "+str(temp) +" F")
+print("Wind Speed: "+str(windspeed) +" MPH \n")
 
 if temp<50 and 3<math.fabs(windspeed)<120:
     windchill= 35.74+ (0.6215*temp)+ (((.4275*temp)-35.75)*(windspeed**.16))
     print("Windchill in farenheit:")
     print(windchill)
+    print()
 else:
     print("Temperature needs to be below 50 and the absolute value of the windspeed needs to be between 3 and 120")

@@ -30,3 +30,4 @@ m0 = m + 12 * math.floor((14 - m) / 12) - 2
 d0 = d + math.floor(x + (31*m0)/12) % 7
 print(d0)
 # started working from 1956 onwards. before this year, this code doesn't work, going forward by  one day
+#in this code, you could have done int or floor divison
