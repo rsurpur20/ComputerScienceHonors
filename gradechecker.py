@@ -16,29 +16,29 @@ number=float(sys.argv[1])
 def numberfunc(number):
     if number>=4.85:
         print("A+")
-    elif 4.7<=number<4.85:
+    elif 4.7<=number:
         print("A")
-    elif 4.5<=number<4.7:
+    elif 4.5<=number:
         print("A-")
-    elif 4.2<=number<4.5:
+    elif 4.2<=number:
         print("B+")
-    elif 3.85<=number<4.2:
+    elif 3.85<=number:
         print("B")
-    elif 3.5<=number<3.85:
+    elif 3.5<=number:
         print("B-")
-    elif 3.2<=number<3.5:
+    elif 3.2<=number:
         print("C+")
-    elif 2.85<=number<3.2:
+    elif 2.85<=number:
         print("C")
-    elif 2.5<=number<2.85:
+    elif 2.5<=number:
         print("C-")
-    elif 2.0<=number<2.5:
+    elif 2.0<=number:
         print("D+")
-    elif 1.5<=number<2.0:
+    elif 1.5<=number:
         print("D")
-    elif 1.0<=number<1.5:
+    elif 1.0<=number:
         print("D-")
-    elif 0.0<=number<1.0:
+    elif 0.0<=number:
         print("F")
 if 0.0<=number<=5.0:
     numberfunc(number)
