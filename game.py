@@ -4,7 +4,7 @@
 import random
 options=["rock", "paper","scissors"]
 computerchoice=random.choice(options)
-print(computerchoice)
+# print(computerchoice)
 def paper(userchoice,computerchoice):
     if userchoice=="rock":
         print("you lose")
@@ -22,13 +22,13 @@ def scissors(userchoice,computerchoice):
 def rock(userchoice,computerchoice):
     if userchoice=="scissors":
         print("you lose")
-    elif userchoice=="lose":
+    elif userchoice=="paper":
         print("you win")
     else:
         print("Tie!")
 def playgame(userchoice):
-    print(userchoice)
-
+    print("User choose:",userchoice)
+    print("Computer choose:",computerchoice)
     if computerchoice=="paper":
         paper(userchoice,computerchoice)
     elif computerchoice=="scissors":
@@ -36,7 +36,7 @@ def playgame(userchoice):
     elif computerchoice=="rock":
         rock(userchoice,computerchoice)
 def ask():
-    userchoice=str.lower(input("Choose 'rock','paper','scissors'."))
+    userchoice=str.lower(input("Choose 'rock','paper','scissors'. \n"))
     if userchoice in ("rock","scissors","paper"):
         playgame(userchoice)
     else:

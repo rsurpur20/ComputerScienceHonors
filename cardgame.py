@@ -18,19 +18,22 @@ num={
 sign=["spades","diamonds","clover","hearts"]
 
 computernumber=random.choice(list(num.keys()))
+# print(num.values())
 computersign=random.choice(sign)
 usernumber=random.choice(list(num.keys()))
 usersign=random.choice(sign)
-print(computernumber)
-print(usernumber)
+# print(computernumber)
+# print(usernumber)
 if computernumber>usernumber:
+    print("Computer: %s%s"%(num[computernumber],computersign))
+    print("User: %s%s"%(num[usernumber],usersign))
     print("you lose")
-    print("Computer: %s%s"%(computernumber,computersign))
-    print("User: %s%s"%(usernumber,usersign))
+
 elif computernumber<usernumber:
+    print("Computer: %s%s"%(num[computernumber],computersign))
+    print("User: %s%s"%(num[usernumber],usersign))
     print("you win")
-    print("Computer: %s%s"%(computernumber,computersign))
-    print("User: %s%s"%(usernumber,usersign))
+
 
 elif computernumber==usernumber:
     print("tie")
