@@ -48,5 +48,5 @@ print(len(f))
 g=[]
 for x in range(10): #will execute 10 times
     g.append(random.randrange(100))
-    g.sort()
+    g.sort() #sorts the list of number in ascending order
 print(g)
