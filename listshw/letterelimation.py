@@ -3,7 +3,7 @@
 names=["Aaron","Ashely","George","Krystal","Roshni","Mom"]
 print("List of names:",names)
 list=[]
-for word in names[:]:
+for word in names[:]: #this creates a copy of the names list
     # print(word)
     if "a" in word or "A" in word:
     #     print(word)
