@@ -16,9 +16,10 @@ height=[0]*heightinput
 list=[]
 for x in range(0, len(height)):
     # print(width[x])
-    print()#print on new line
+    # print()#print on new line
     for x in range(0,len(width)):
         print(width[x], end=' ') #prints on same line
+    print()#print on new line
 
 
 
