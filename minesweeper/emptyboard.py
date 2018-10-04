@@ -1,11 +1,13 @@
-# https://snakify.org/en/lessons/two_dimensional_lists_arrays/
-#Daniel helped me,and I understand
+# import NumPy as np
 import random
 widthinput=int(input("width?\n"))+2 #number or colomns
 heightinput=int(input("height ?\n"))+2 #number of rows
 bombsinput=int(input("number of bombs?\n"))#number of bombs
+emptyboard=[]
 width=[]
 height=[]
+# width=[]
+area=int(widthinput-2)*int(heightinput-2)
 # j=[]
 # # for x in range(len(j)): #len(j) gives you the number of rows
 # #     print(*j[x]) #putting a * right before a list gets rid of synatx
@@ -69,19 +71,57 @@ while i<=bombsinput:
         # index[y][x+2]=+1
         # index[y][x-2]=+1
     z+=1
+for x in range(heightinput):
+#height +2 gives you number of rows
+    width=["X"]*(widthinput)
+    emptyboard.append(width)
+# print(emptyboard, end=' ')
+# print()
+print(*list(range(1,widthinput-1)))
+
+for x in range(1,heightinput-1): #every row except the buffer rows
+
+    # print(*list(range(1,heightinput-1)))
+        for y in range(1,widthinput-1): #for every colomn except the buffer colomns
+            # print(*index[y])
+            # t=0
+            print(emptyboard[y][x], end=' ') #prints the board with all the X's
+        # for t in range(heightinput-1):
+        #     print(t)
+        #     t=t+1
+        print()
 for x in range(1,heightinput-1): #every row except the buffer rows
     for y in range(1,widthinput-1): #for every colomn except the buffer colomns
         # print(*index[y])
 
         print(index[x][y], end=' ')
     print()
-    # height.append(width)
-    # j.append(width) #list j will have ten zeros
-    # print(height)
-    # print(width[x])
-# gives you a ten by ten list of 100 zeros
+xinput=int(input("what is the x coordinate of the point you want to click on?"))
+yinput=int(input("what is the y coordinate of the point you want to click on?"))
+
+
+emptyboard[yinput][xinput]=index[yinput][xinput]
+if x in range(widthinput):
+    for x in range(1,heightinput-1): #every row except the buffer rows
+        for y in range(1,widthinput-1): #for every colomn except the buffer colomns
+            print(emptyboard[x][y], end=' ')
+        print()
+
+    print()
+    print(index[yinput][xinput])
+    if index[yinput][xinput]=="*":
+        exit() #will exit the game if user chooses a space with a bomb
+
+# # emptyboard.append(list(range(int(area))))
+# # board
+# for i in range(area):
+#     emptyboard.append(np.arange(area).reshape(10, -1))
 #
-# for i in range(height):
-#     for j in range(width):
-#         print(width[i][j], end=' ')
-#     print()
+# # print(emptyboard%height)
+# # print()
+# board = np.array(emptyboard)
+# print(board)
+#
+
+#
+# print(np.reshape(np.arange(0,100),(10,10)))
