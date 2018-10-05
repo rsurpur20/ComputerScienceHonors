@@ -1,5 +1,6 @@
 # import NumPy as np
 import random
+import operator
 widthinput=int(input("width?\n"))+2 #number or colomns
 heightinput=int(input("height ?\n"))+2 #number of rows
 bombsinput=int(input("number of bombs?\n"))#number of bombs
@@ -95,22 +96,83 @@ for x in range(1,heightinput-1): #every row except the buffer rows
         # print(*index[y])
 
         print(index[x][y], end=' ')
+        revealed=False
     print()
 xinput=int(input("what is the x coordinate of the point you want to click on?"))
 yinput=int(input("what is the y coordinate of the point you want to click on?"))
 
 
 emptyboard[yinput][xinput]=index[yinput][xinput]
+#will print the board with the user's position
 if x in range(widthinput):
     for x in range(1,heightinput-1): #every row except the buffer rows
         for y in range(1,widthinput-1): #for every colomn except the buffer colomns
             print(emptyboard[x][y], end=' ')
+
         print()
 
-    print()
-    print(index[yinput][xinput])
-    if index[yinput][xinput]=="*":
-        exit() #will exit the game if user chooses a space with a bomb
+    # print()
+    # print(index[yinput][xinput])
+
+
+# def revealallthingsaroundapoint(x,y,index,emptyboard):
+#     print(itemgetter(x+1,y-1)(emptyboard))
+#     #checking mechanism
+if index[yinput][xinput]=="*":
+    exit() #will exit the game if user chooses a space with a bomb
+
+#this whole empty if statement if for printing all the points around an if statement
+if index[yinput][xinput]==0:
+    print("yolo")
+    check=[]
+    check.append(index[yinput][xinput])
+    while len(check)!=0:
+        print("yolo")
+        # for position in check:
+        emptyboard[yinput][xinput]=index[yinput][xinput]
+        emptyboard[yinput-1][xinput]=index[yinput-1][xinput] #up
+        emptyboard[yinput][xinput-1]=index[yinput][xinput-1]#left
+        emptyboard[yinput][xinput+1]=index[yinput][xinput+1]#right
+        emptyboard[yinput+1][xinput]=index[yinput+1][xinput]#down
+        emptyboard[yinput+1][xinput+1]=index[yinput+1][xinput+1]
+        emptyboard[yinput-1][xinput-1]=index[yinput-1][xinput-1]
+        emptyboard[yinput+1][xinput-1]=index[yinput+1][xinput-1]
+        emptyboard[yinput-1][xinput+1]=index[yinput-1][xinput+1]
+        check.append(index[yinput-1][xinput])
+        check.append(index[yinput][xinput-1])
+        check.append(index[yinput][xinput+1])
+        check.append(index[yinput+1][xinput+1])
+        check.append(index[yinput-1][xinput-1])
+        check.append(index[yinput+1][xinput-1])
+        check.append(index[yinput-1][xinput+1])
+
+        check.remove(index[yinput-1][xinput+1])
+        check.remove(index[yinput+1][xinput-1])
+        check.remove(index[yinput+1][xinput+1])
+        check.remove(index[yinput-1][xinput-1])
+        check.remove(index[yinput][xinput+1])
+        check.remove(index[yinput-1][xinput])
+        check.remove(index[yinput][xinput-1])
+        check.remove(index[yinput][xinput])
+    if x in range(widthinput):
+        for x in range(1,heightinput-1): #every row except the buffer rows
+            for y in range(1,widthinput-1): #for every colomn except the buffer colomns
+                print(emptyboard[x][y], end=' ')
+
+            print()
+
+#list of values to check
+#a while loop that consisently checks whether or not there is a zero
+
+
+    # if x in range(widthinput):
+    #     for x in range(1,heightinput-1): #every row except the buffer rows
+    #         for y in range(1,widthinput-1): #for every colomn except the buffer colomns
+    #             # print(emptyboard[x+1][y-1], end=' ')
+    #             # revealallthingsaroundapoint(x,y,index,emptyboard)
+    #         print()
+
+
 
 # # emptyboard.append(list(range(int(area))))
 # # board
