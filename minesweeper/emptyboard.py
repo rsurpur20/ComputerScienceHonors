@@ -1,44 +1,24 @@
 # import NumPy as np
 import random
-import operator
+#setting up variables------------------------------------------------------------
 widthinput=int(input("width?\n"))+2 #number or colomns
 heightinput=int(input("height ?\n"))+2 #number of rows
 bombsinput=int(input("number of bombs?\n"))#number of bombs
 emptyboard=[]
 width=[]
 height=[]
-# width=[]
 area=int(widthinput-2)*int(heightinput-2)
-# j=[]
-# # for x in range(len(j)): #len(j) gives you the number of rows
-# #     print(*j[x]) #putting a * right before a list gets rid of synatx
-#
-# width=[0]*widthinput
-# height=[0]*heightinput
-# # print(width)
-# # print(height)
-# list=[width[]height[]]
-# for x in range(0, len(height)):
-#     # print(width[x])
-#     # print()#print on new line
-#     for x in range(0,len(width)):
-#         print(width[x], end=' ') #prints on same line
-#     print()#print on new line
-#
-
 index=[]
-# for every row in the height, make an empty row:
-for x in range(heightinput):
+#--------------------------------------------------------------------------------
+
+#setting up a board with all the values=0----------------------------------------
+
+for x in range(heightinput):# for every row in the height, make an empty row:
 #height +2 gives you number of rows
     width=[0]*(widthinput)
     index.append(width)
-    # print(index)
-    # print(*index[x])
 
-area=heightinput*widthinput
-# for x in range(0,bombsinput):
-#     position=random.randint(0,area)
-#     print(position)
+#setting up a board with the values added with the bombs----------------------------------------
 i=1
 while i<=bombsinput:
     x=random.randint(1,widthinput-2)
@@ -48,9 +28,7 @@ while i<=bombsinput:
 
     i+=1
     #adds one to the area around the bomb
-    z=0
-    # print(bombsinput)
-    # for z in range(bombsinput):
+
     if index[y+1][x]!="*": #right
         index[y+1][x]+=1
     if index[y-1][x]!="*": #left
@@ -69,28 +47,29 @@ while i<=bombsinput:
     if index[y+1][x+1]!="*":
         index[y+1][x+1]+=1
 
-        # index[y][x+2]=+1
-        # index[y][x-2]=+1
-    z+=1
+#setting up a board with X's, this is the board the user sees----------------------------------------
+
 for x in range(heightinput):
 #height +2 gives you number of rows
     width=["X"]*(widthinput)
     emptyboard.append(width)
-# print(emptyboard, end=' ')
-# print()
+#printing the board with all the X's----------------------------------------
+print("The top left point is (1,1). Use the number line on the top for guidance.")
 print(*list(range(1,widthinput-1)))
 
-for x in range(1,heightinput-1): #every row except the buffer rows
-
+for y in range(1,heightinput-1): #every row except the buffer rows
+        # print(x,y)
     # print(*list(range(1,heightinput-1)))
-        for y in range(1,widthinput-1): #for every colomn except the buffer colomns
+        for x in range(1,widthinput-1): #for every colomn except the buffer colomns
             # print(*index[y])
             # t=0
+
             print(emptyboard[y][x], end=' ') #prints the board with all the X's
-        # for t in range(heightinput-1):
-        #     print(t)
-        #     t=t+1
+
         print()
+#--------------------------------------------------------------------------------
+
+#prints the board with all values added from bombs----------------------------------------
 for x in range(1,heightinput-1): #every row except the buffer rows
     for y in range(1,widthinput-1): #for every colomn except the buffer colomns
         # print(*index[y])
@@ -98,62 +77,16 @@ for x in range(1,heightinput-1): #every row except the buffer rows
         print(index[x][y], end=' ')
         revealed=False
     print()
+#------------------------------------------------------------------------------
 xinput=int(input("what is the x coordinate of the point you want to click on?"))
 yinput=int(input("what is the y coordinate of the point you want to click on?"))
+clearorflag=int(input("Press 1 if you want to clear this point, and 2 to flag this point."))
 
 
-emptyboard[yinput][xinput]=index[yinput][xinput]
-#will print the board with the user's position
-if x in range(widthinput):
-    for x in range(1,heightinput-1): #every row except the buffer rows
-        for y in range(1,widthinput-1): #for every colomn except the buffer colomns
-            print(emptyboard[x][y], end=' ')
-
-        print()
-
-    # print()
-    # print(index[yinput][xinput])
-
-
-# def revealallthingsaroundapoint(x,y,index,emptyboard):
-#     print(itemgetter(x+1,y-1)(emptyboard))
-#     #checking mechanism
-if index[yinput][xinput]=="*":
-    exit() #will exit the game if user chooses a space with a bomb
-
-#this whole empty if statement if for printing all the points around an if statement
-if index[yinput][xinput]==0:
-    print("yolo")
-    check=[]
-    check.append(index[yinput][xinput])
-    while len(check)!=0:
-        print("yolo")
-        # for position in check:
-        emptyboard[yinput][xinput]=index[yinput][xinput]
-        emptyboard[yinput-1][xinput]=index[yinput-1][xinput] #up
-        emptyboard[yinput][xinput-1]=index[yinput][xinput-1]#left
-        emptyboard[yinput][xinput+1]=index[yinput][xinput+1]#right
-        emptyboard[yinput+1][xinput]=index[yinput+1][xinput]#down
-        emptyboard[yinput+1][xinput+1]=index[yinput+1][xinput+1]
-        emptyboard[yinput-1][xinput-1]=index[yinput-1][xinput-1]
-        emptyboard[yinput+1][xinput-1]=index[yinput+1][xinput-1]
-        emptyboard[yinput-1][xinput+1]=index[yinput-1][xinput+1]
-        check.append(index[yinput-1][xinput])
-        check.append(index[yinput][xinput-1])
-        check.append(index[yinput][xinput+1])
-        check.append(index[yinput+1][xinput+1])
-        check.append(index[yinput-1][xinput-1])
-        check.append(index[yinput+1][xinput-1])
-        check.append(index[yinput-1][xinput+1])
-
-        check.remove(index[yinput-1][xinput+1])
-        check.remove(index[yinput+1][xinput-1])
-        check.remove(index[yinput+1][xinput+1])
-        check.remove(index[yinput-1][xinput-1])
-        check.remove(index[yinput][xinput+1])
-        check.remove(index[yinput-1][xinput])
-        check.remove(index[yinput][xinput-1])
-        check.remove(index[yinput][xinput])
+def clear(clearorflag,xinput,yinput,x,y):
+    # prints the board showing just the one point the user wanted to see---------------------------------------
+    emptyboard[yinput][xinput]=index[yinput][xinput] #set the the point equal to the value
+    #will print the board with the user's position
     if x in range(widthinput):
         for x in range(1,heightinput-1): #every row except the buffer rows
             for y in range(1,widthinput-1): #for every colomn except the buffer colomns
@@ -161,29 +94,54 @@ if index[yinput][xinput]==0:
 
             print()
 
-#list of values to check
-#a while loop that consisently checks whether or not there is a zero
 
+    #checking mechanism if user chooses a location with a bomb----------------------------------------
+    if index[yinput][xinput]=="*":
+        exit() #will exit the game if user chooses a space with a bomb
+    # ------------------------------------------------------------------------------------------------------------------------
 
-    # if x in range(widthinput):
-    #     for x in range(1,heightinput-1): #every row except the buffer rows
-    #         for y in range(1,widthinput-1): #for every colomn except the buffer colomns
-    #             # print(emptyboard[x+1][y-1], end=' ')
-    #             # revealallthingsaroundapoint(x,y,index,emptyboard)
-    #         print()
+    #this whole empty if statement if for printing all the points around an zero
+    if index[yinput][xinput]==0:
+        # print("yolo")
+        # print(x+xinput)
+        g=0
+        def checkpoints(xinput,yinput, emptyboard,index,g):
+            emptyboard[yinput][xinput]=index[yinput][xinput]
+            check=[]
+            check.append(emptyboard[yinput][xinput])
+            print("before while loop")
 
+            while g!=9: #there is a total of 9 things to check
 
+                print(check)
+                print("in while loop")
+                # print("yolo")
+                # xinput=0
+                # yinput=0
+                for x in range(-1,2):
+                    for y in range(-1,2):
+                        print(x,y)
+                        print("in for loop")
+                        # print(xinput)
+                        # emptyboard[x+xinput][y+yinput]=index[x+xinput][y+yinput]
+                        #these next two lines is where the error is !!!!!!!!
+                        check.append(emptyboard[x+xinput][y+yinput])
+                        if emptyboard[x+xinput][y+yinput]==0:
+                            print("in if statement")
+                            xinput=x+xinput
+                            yinput=y+yinput
+                            emptyboard[yinput][xinput]=index[yinput][xinput]
 
-# # emptyboard.append(list(range(int(area))))
-# # board
-# for i in range(area):
-#     emptyboard.append(np.arange(area).reshape(10, -1))
-#
-# # print(emptyboard%height)
-# # print()
-# board = np.array(emptyboard)
-# print(board)
-#
-
-#
-# print(np.reshape(np.arange(0,100),(10,10)))
+                            checkpoints(xinput,yinput, emptyboard,index,g)
+                        else:
+                            print("this should break")
+                            # return
+                        print(g)
+                        g=g+1
+        checkpoints(xinput,yinput, emptyboard,index,g)
+def flag(clearorflag,xinput,yinput,x,y):
+    print("add code")
+if clearorflag==1: #INDENT EVERYTHING BELOW
+    clear(clearorflag,xinput,yinput,x,y)
+if clearorflag==2:
+    flag(clearorflag,xinput,yinput,x,y)
