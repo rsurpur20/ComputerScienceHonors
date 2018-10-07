@@ -78,11 +78,6 @@ for x in range(1,heightinput-1): #every row except the buffer rows
         revealed=False
     print()
 #------------------------------------------------------------------------------
-xinput=int(input("what is the x coordinate of the point you want to click on?"))
-yinput=int(input("what is the y coordinate of the point you want to click on?"))
-clearorflag=int(input("Press 1 if you want to clear this point, and 2 to flag this point."))
-
-
 def clear(clearorflag,xinput,yinput,x,y):
     # prints the board showing just the one point the user wanted to see---------------------------------------
     emptyboard[yinput][xinput]=index[yinput][xinput] #set the the point equal to the value
@@ -140,8 +135,27 @@ def clear(clearorflag,xinput,yinput,x,y):
                         g=g+1
         checkpoints(xinput,yinput, emptyboard,index,g)
 def flag(clearorflag,xinput,yinput,x,y):
+    emptyboard[yinput][xinput]='*'
+    for y in range(1,heightinput-1): #every row except the buffer rows
+            # print(x,y)
+        # print(*list(range(1,heightinput-1)))
+            for x in range(1,widthinput-1): #for every colomn except the buffer colomns
+                # print(*index[y])
+                # t=0
+
+                print(emptyboard[y][x], end=' ') #prints the board with all the X's
+
+            print()
+    return(emptyboard[y][x])
     print("add code")
-if clearorflag==1: #INDENT EVERYTHING BELOW
-    clear(clearorflag,xinput,yinput,x,y)
-if clearorflag==2:
-    flag(clearorflag,xinput,yinput,x,y)
+def ask():
+    xinput=int(input("what is the x coordinate of the point you want to click on?"))
+    yinput=int(input("what is the y coordinate of the point you want to click on?"))
+    clearorflag=int(input("Press 1 if you want to clear this point, and 2 to flag this point."))
+    # return(xinput,yinput,clearorflag)
+    if clearorflag==1: #INDENT EVERYTHING BELOW
+        clear(clearorflag,xinput,yinput,x,y)
+    if clearorflag==2:
+        flag(clearorflag,xinput,yinput,x,y)
+while emptyboard!=index:
+    ask()
