@@ -8,6 +8,7 @@ width=[]
 height=[]
 area=int(widthinput-2)*int(heightinput-2)
 index=[]
+bomb_count = 0
 #-------------------------------------------------------------------------------
 
 #setting up a board with all the values=0---------------------------------------
@@ -19,9 +20,12 @@ for x in range(heightinput):# for every row in the height, make an empty row:
 
 #setting up a board with the values added with the bombs------------------------
 i=1
-while i<=bombsinput:
+for x in range(bombsinput):
     x=random.randint(1,widthinput-2)
     y=random.randint(1,heightinput-2)
+    while index[x][y] is "*":
+        x=random.randint(1,widthinput-2)
+        y=random.randint(1,heightinput-2)
     index[y][x]="*"
     # print(y,x)
 
@@ -46,6 +50,12 @@ while i<=bombsinput:
     if index[y+1][x+1]!="*":
         index[y+1][x+1]+=1
 
+for x in range(1, len(index)-1):
+    for y in range(1, len(index[0])-1):
+        if index[x][y] == "*":
+            bomb_count += 1
+print("there are",bomb_count,"bombs")
+
 #setting up a board with X's, this is the board the user sees-------------------
 for x in range(heightinput):
 #height +2 gives you number of rows
@@ -69,6 +79,11 @@ for y in range(1,heightinput-1): #every row except the buffer rows
         print()
 print()
 #-------------------------------------------------------------------------------
+index[0]=[1]*widthinput
+index[-1]=[1]*widthinput
+for j in index:
+    j[0]=1
+    j[-1]=1
 
 #prints the board with all values added from bombs------------------------------
 for x in range(1,heightinput-1): #every row except the buffer rows
@@ -107,41 +122,45 @@ def clear(clearorflag,xinput,yinput,x,y):
 
     #this whole empty if statement if for printing all the points around an zero
     if index[yinput][xinput]==0:
-        # print("yolo")
         # print(x+xinput)
         g=0
         def checkpoints(xinput,yinput, emptyboard,index,g):
-            emptyboard[yinput][xinput]=index[yinput][xinput]
+            # emptyboard[yinput][xinput]=index[yinput][xinput]
             check=[]
-            check.append(emptyboard[yinput][xinput])
+            check.append(index[yinput][xinput])
             print("before while loop")
 
-            while g!=9: #there is a total of 9 things to check
+            while g!=8: #there is a total of 9 things to check
 
-                print(check)
+                # print(check)
                 print("in while loop")
-                # print("yolo")
                 # xinput=0
                 # yinput=0
                 for x in range(-1,2):
                     for y in range(-1,2):
-                        print(x,y)
+                        # print(x,y)
                         print("in for loop")
+                        emptyboard[xinput][yinput]=index[xinput][yinput]
+
                         # print(xinput)
                         # emptyboard[x+xinput][y+yinput]=index[x+xinput][y+yinput]
                         #these next two lines is where the error is !!!!!!!!
-                        check.append(emptyboard[x+xinput][y+yinput])
-                        if emptyboard[x+xinput][y+yinput]==0:
-                            print("in if statement")
+                        if index[x+xinput][y+yinput]==0 and emptyboard[xinput][yinput]=="X":
+
+                            # print("in if statement")
+                            #
+                            #
+                            # if emptyboard[xinput][yinput]=="X": #if not revealed
+                            check.append(index[x+xinput][y+yinput])
+                            print("in the X if statement")
                             xinput=x+xinput
                             yinput=y+yinput
-                            emptyboard[yinput][xinput]=index[yinput][xinput]
-                            if emptyboard[x][y]=="X":
-                                checkpoints(xinput,yinput, emptyboard,index,g)
-                        else:
+                            checkpoints(xinput,yinput,emptyboard,index,g)
+                            # print(check)
+                        elif index[x+xinput][y+yinput]!=0 and emptyboard[xinput][yinput]!="X":
                             print("this should break")
                             # return
-                        print(g)
+                        # print(g)
                         g=g+1
         checkpoints(xinput,yinput, emptyboard,index,g)
 def flag(clearorflag,xinput,yinput,x,y):
