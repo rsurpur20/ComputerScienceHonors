@@ -7,13 +7,9 @@ image=Image.new("RGB",(imgx,imgy)) #specifying color, width, height
 i=0
 e=0
 for i in range(0,imgx):
-
-    image.putpixel((i,0),(0,50,200))
-
-
     for e in range(0,imgy):
-        image.putpixel((0,e),(0,50,200))
-
+        image.putpixel((i,e),(0,50,200))
+        e=e+1
     i=i+1
-    e=e+1
+
 image.save("demo_img2.png","PNG")#name, type of file
