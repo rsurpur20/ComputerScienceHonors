@@ -1,3 +1,7 @@
+# Roshni Surpur
+# Minesweeper game
+
+
 import random
 #setting up variables-----------------------------------------------------------
 widthinput=int(input("width?\n"))+2 #number or colomns
@@ -148,7 +152,7 @@ while bombsinput!=flagcount+emptyboard.count("X"): #while the number of bombs is
     xinput=int(input("what is the x coordinate of the point you want to click on?\n"))
     yinput=int(input("what is the y coordinate of the point you want to click on?\n"))
     clearorflag=int(input("Press 1 if you want to clear this point, and 2 to flag this point.\n"))
-    
+
     if clearorflag==1:
         clear(xinput,yinput)
     elif clearorflag==2:
