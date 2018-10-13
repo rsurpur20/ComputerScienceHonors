@@ -85,14 +85,14 @@ for j in index:
     j[0]=1
     j[-1]=1
 
-#prints the board with all values added from bombs------------------------------
-for x in range(1,heightinput-1): #every row except the buffer rows
-    for y in range(1,widthinput-1): #for every colomn except the buffer colomns
-        # print(*index[y])
-
-        print(index[x][y], end=' ')
-        revealed=False
-    print()
+# #prints the board with all values added from bombs------------------------------
+# for x in range(1,heightinput-1): #every row except the buffer rows
+#     for y in range(1,widthinput-1): #for every colomn except the buffer colomns
+#         # print(*index[y])
+#
+#         print(index[x][y], end=' ')
+#         revealed=False
+#     print()
 #-------------------------------------------------------------------------------
 def clear(xinput,yinput):
     # print("Howdy!")
@@ -107,10 +107,7 @@ def clear(xinput,yinput):
     if index[yinput][xinput]=="*":
         for x in range(1,heightinput-1): #every row except the buffer rows
             for y in range(1,widthinput-1): #for every colomn except the buffer colomns
-                # print(*index[y])
-
                 print(index[x][y], end=' ')
-                revealed=False
             print()
         print("You selected a bomb. Game over.")
         exit() #will exit the game if user chooses a space with a bomb
@@ -139,74 +136,24 @@ def checkpoints(xinput,yinput, emptyboard,index):
                         # in the to do list:
                         # y=[firstzero[1]+y]
                         # x=[firstzero[0]+x]
-
-
                 emptyboard[firstzero[1]+y][firstzero[0]+x]=index[firstzero[1]+y][firstzero[0]+x]
 
-    # # emptyboard[yinput][xinput]=index[yinput][xinput]
-    # check=[]
-    # check.append([yinput,xinput])
-    # print("before while loop")
-    #
-    # while len(check)>0: #there is a total of 9 things to check
-    #     temp = check.pop(0)
-    #     yinput = temp[0]
-    #     xinput = temp[1]
-    #     # print(check)
-    #     print("in while loop")
-    #     # xinput=0
-    #     # yinput=0
-    #     for x in range(-1,2):
-    #         for y in range(-1,2):
-    #             # print(x,y)
-    #
-    #             print("in for loop")
-    #
-    #             #these next two lines is where the error is !!!!!!!!
-    #             print("The following is:index[y+yinput][x+xinput]")
-    #             print(index[y+yinput][x+xinput])
-    #             print("The following is:emptyboard[yinput][xinput]==X")
-    #             print(emptyboard[yinput][xinput])
-    #             # reset the empty board to be equal to a bunch of X's
-    #             # for j in range(heightinput):
-    #             # emptyboard=[["X"]*(widthinput) for x in range(heightinput)]
-    #
-    #             if index[y+yinput][x+xinput]==0 and emptyboard[yinput][xinput]=="X":#if not revealed
-    #                 print("The following is:index[y+yinput][x+xinput]")
-    #                 print(index[y+yinput][x+xinput])
-    #                 check.append([y+yinput,x+xinput])
-    #                 print("in the X if statement")
-    #                 xinput=x+xinput
-    #                 yinput=y+yinput
-    #             emptyboard[yinput][xinput]=index[yinput][xinput]
 flagcount=0
 def flag(xinput,yinput):
 
-    # print(flagcount)
     emptyboard[yinput][xinput]="*"
-    # for y in range(1,heightinput-1): #every row except the buffer rows
-    #
-    #         for x in range(1,widthinput-1): #for every colomn except the buffer colomns
-    #             print(emptyboard[y][x], end=' ') #prints the board with all the X's
-    #
-    # #         print()
-    # return(flagcount)
-    # # print("add code")
 
-
-def ask():
+t=0
+while bombsinput!=flagcount+emptyboard.count("X"): #while the number of bombs is not equal to the number of flags+empty spaces
     xinput=int(input("what is the x coordinate of the point you want to click on?\n"))
     yinput=int(input("what is the y coordinate of the point you want to click on?\n"))
     clearorflag=int(input("Press 1 if you want to clear this point, and 2 to flag this point.\n"))
-    # return(xinput,yinput,clearorflag)
-    print(xinput, yinput, clearorflag, clearorflag==1, clearorflag==2)
-    if clearorflag==1: #INDENT EVERYTHING BELOW
+    
+    if clearorflag==1:
         clear(xinput,yinput)
     elif clearorflag==2:
         flag(xinput,yinput)
-        # flagcount+=1
-        # print("flagcount")
-        # print(flagcount)
+
     else:
         print(clearorflag,"Did not understand your answer. Try again")
         ask()
@@ -216,59 +163,9 @@ def ask():
 
         print()
     print()
-
-
-
-
-
-    # -----
-    # for x in range(0,area):
-    #     if emptyboard[yinput][xinput]==index[yinput][xinput]:
-    #         x=x+1
-    #
-    # print(x)
-    #    --------
-    # f=0
-    # if "X" in emptyboard:
-    #     f=f+1
-    # print("F:")
-    # print(f)
-    print("emptyboard[yinput][xinput]==index[yinput][xinput]",emptyboard[yinput][xinput]==index[yinput][xinput])
-    print(type(emptyboard[yinput][xinput]))
-    print(type(index[yinput][xinput]))
-    print("EMPTYBOARD IS:")
-    for x in range(1,heightinput-1): #every row except the buffer rows
-        for y in range(1,widthinput-1): #for every colomn except the buffer colomns
-            print(emptyboard[x][y], end=' ')
-
-        print()
-    print()
-    print()
-    print("INDEX IS:")
-    for x in range(1,heightinput-1): #every row except the buffer rows
-        for y in range(1,widthinput-1): #for every colomn except the buffer colomns
-            print(index[x][y], end=' ')
-
-        print()
-    print()
-    print()
-
-# f is the amount of empty spaces on the board
-t=0
-# bombsinput!=flagcount+emptyboard.count("X")
-while bombsinput!=flagcount+emptyboard.count("X"): #while the number of bombs is not equal to the number of flags+empty spaces
-    ask()
     if emptyboard[yinput][xinput]=="*" and index[yinput][xinput]=="*":
         t=t+1
-    if t==area:
+    # print(t)
+    if t==bombsinput:
+        print("You won!")
         quit()
-    # for item in emptyboard:
-    # 	for item1 in index:
-    # 		if item == item1:
-    			# print(item)
-    # print("index==emptyboard",index==emptyboard)
-    # print(compare(emptyboard,index))
-    # print("number of X's")
-    # print(emptyboard.count("X"))
-    # print("Number of flags:")
-    # print(flagcount)
