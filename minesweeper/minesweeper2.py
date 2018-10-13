@@ -1,17 +1,21 @@
 # Roshni Surpur
 # Minesweeper game
-
+# On my honor, I have neither given nor recieved unauthorized aidself.
+# Ryan Kim did help me come up with the idea of using the bomb counts and flag counts to end the Game
+# Daniel originally helped me try to figure out the continuous zero's aspect but I ultimately figured that out with your
+# Knute gave me the idea to make the buffer rows equal to 1 so there would be no unnecessary errors
+# Other than that, I did use stack overflow but that was for checking syntax and information about lists.
 
 import random
 #setting up variables-----------------------------------------------------------
 widthinput=int(input("width?\n"))+2 #number or colomns
 heightinput=int(input("height ?\n"))+2 #number of rows
 bombsinput=int(input("number of bombs?\n"))#number of bombs
-emptyboard=[]
+emptyboard=[] #user board
 width=[]
 height=[]
 area=int(widthinput-2)*int(heightinput-2)
-index=[]
+index=[] #solution board
 bomb_count = 0
 #-------------------------------------------------------------------------------
 
