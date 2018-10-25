@@ -1,5 +1,6 @@
 # Roshni Surpur
 # Octiber 25, 2018
+#On my honor, I have neither given nor recieved unauthorized aid.
 # Ryan helped me figure out the HSV colorsys in class
 # also i got help from https://www.atopon.org/mandel/#
 # http://www.shodor.org/interactivate/activities/JuliaSets/ for finding ranges
