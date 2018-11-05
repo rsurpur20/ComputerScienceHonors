@@ -1,4 +1,4 @@
-
+# So this class lets me munipulate a single card
 class Card:
     def __init__(self, rank, suit):
         self.rank=rank
