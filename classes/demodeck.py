@@ -19,6 +19,8 @@ class Deck:
 	def shuffle(self):
 		shuffle(self.cards)
 
+	# def sort(self):
+	# 	sorted(self.cards)
 	# deals a single card from the list
 	# the default is the first card in the list
 	# if a number is passed, the card at that location will be dealt
@@ -37,9 +39,6 @@ class Deck:
 		# self.cards=self.cards.sort()
 	# def add_randomcard(self,card):
 	#         player_deck.add_card(dealer_deck.deal()) #add the card that the dealer deals
-
-
-
 
 	def num_cards(self):
 		return len(self.cards)
@@ -60,6 +59,11 @@ class Deck:
 		for i in self.cards:
 			if card.rank == i.rank and card.suit == i.suit:
 				return True
+		return False
+	def compare(self,position=-1):
+		# checking if all the ranks are equal
+		if self.cards[position].rank == self.cards[position+1].rank:
+			return True
 		return False
 
 	# for printing out all the cards in the deck in a nice way
@@ -137,7 +141,11 @@ def removecard():
 	# player_deck.remove(dealer_deck.deal())
 	# print(removed_cards)
 def check_win():
-
+	# player_deck.sort()
+	if player_deck.compare())==True:
+		print("You have won!")
+		break()
+	
 	# first check if all the numbers are the same
 	# first sort the numbers
 while True:
