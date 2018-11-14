@@ -12,7 +12,7 @@ class Card:
             self.rank="Kings"
         if self.rank==1:
             self.rank="Ace"
-        return (str(self.rank)+" of "+self.suit)
+        return (str(self.rank)+self.suit)
         __repr__ = __str__
 
 # for i in range(1,14):
