@@ -85,22 +85,22 @@ class Deck:
 	def compare_rankssuits(self,position=0):
 		player_deck.sort()
 		if self.cards[position].suit == self.cards[position+1].suit== self.cards[position+2].suit== self.cards[position+3].suit:
-			print("works")
-			print(self.cards[position].rank)
-			print(self.cards[position+1].rank)
-			print(self.cards[position+2].rank)
-			print(self.cards[position+3].rank)
+			# print("works")
+			# print(self.cards[position].rank)
+			# print(self.cards[position].rank-1)
+			# print(self.cards[position].rank-2)
+			# print(self.cards[position].rank-3)
 
-			if self.cards[position].rank == (self.cards[position+1].rank)+1 and self.cards[position].rank== (self.cards[position+2].rank)+2 and self.cards[position].rank== (self.cards[position+3].rank)+3:
-				return True
-			if self.cards[position].rank == (self.cards[position+1].rank)-1 and self.cards[position].rank== (self.cards[position+2].rank)-2 and self.cards[position].rank== (self.cards[position+3].rank)-3:
-				return True
+			# if self.cards[position].rank == (self.cards[position+1].rank)+1 and self.cards[position].rank== (self.cards[position+2].rank)+2 and self.cards[position].rank== (self.cards[position+3].rank)+3:
+			# 	return True
+			# if self.cards[position].rank == (self.cards[position+1].rank)-1 and self.cards[position].rank== (self.cards[position+2].rank)-2 and self.cards[position].rank== (self.cards[position+3].rank)-3:
+			# 	return True
 
 
 			# if self.cards[position].rank+1 == self.cards[position+1].rank and self.cards[position].rank+2== self.cards[position+2].rank and self.cards[position].rank+3== self.cards[position+3].rank:
 			# 	return True
-			# if self.cards[position].rank-1 == self.cards[position+1].rank and self.cards[position].rank-2== self.cards[position+2].rank and self.cards[position].rank-3== self.cards[position+3].rank:
-			# 	return True
+			if self.cards[position].rank-1 == self.cards[position+1].rank and self.cards[position].rank-2== self.cards[position+2].rank and self.cards[position].rank-3== self.cards[position+3].rank:
+				return True
 
 		return False
 	# for printing out all the cards in the deck in a nice way
