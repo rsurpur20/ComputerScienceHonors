@@ -4,16 +4,17 @@ class Card:
         self.rank=rank
         self.suit=suit
     def __str__(self):
+        temp = str(self.rank)
         if self.rank==11:
-            self.rank="Jack"
+            temp="Jack"
         if self.rank==12:
-            self.rank="Queens"
+            temp = "Queens"
         if self.rank==13:
-            self.rank="Kings"
+            temp = "Kings"
         if self.rank==1:
-            self.rank="Ace"
-        return (str(self.rank)+self.suit)
-        __repr__ = __str__
+            temp = "Ace"
+        return (temp+self.suit)
+    __repr__ = __str__
 
 # for i in range(1,14):
 #     # a=str(Card(i, "spades"))
