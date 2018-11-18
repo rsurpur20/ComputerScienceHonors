@@ -1,3 +1,10 @@
+# Roshni Surpur
+# November 16,2018
+# on my honor, I have neither given nor recieved unauthorized aid
+# http://interactivepython.org/runestone/static/pythonds/SortSearch/TheSelectionSort.html Accessed November 16,2018
+# I also used the code from the demo in class
+# This code is for the card game rummy.
+
 # import card class from separate file, and random shuffle module
 from card import Card
 from random import shuffle
@@ -19,11 +26,11 @@ class Deck:
 	# uses the random module's shuffle method to shuffle cards
 	def shuffle(self):
 		shuffle(self.cards)
-# !!!!!!!!!!!!!!!!!!!!!!!!
+# sorts card
 	def sort(self):
 		self.cards.sort(key=lambda x: str(x.rank), reverse=True)
 		# print("Cards:",self.__str__())
-
+# sorts card
 	def selectionSort(self):
 		for fillslot in range(len(self.cards)-1,0,-1):
 			positionOfMax=0
@@ -34,15 +41,16 @@ class Deck:
 			temp = self.cards[fillslot]
 			self.cards[fillslot] = self.cards[positionOfMax]
 			self.cards[positionOfMax] = temp
+
 	# deals a single card from the list
 	# the default is the first card in the list
 	# if a number is passed, the card at that location will be dealt
 	# error checking would be nice, to prevent dealing cards at positions that don't exist,
 	# or to prevent dealing a card when no cards are left in the hand
 	def deal(self, position=-1):
-		if len(self.cards)==0 or position==len(self.cards):
-			return False
-		elif position==-1: #error checking?
+		# if len(self.cards)==0 or position==len(self.cards):
+		# 	return False
+		if position==-1 or position>len(self.cards):
 		# a.pop() removes and returns the item in the list
 			return self.cards.pop(0) #removes first item in the list which has been dealt
 		else:
@@ -51,9 +59,7 @@ class Deck:
 	# add a card to the deck
 	def add_card(self, card):
 		self.cards.append(card)
-		# self.cards=self.cards.sort()
-	# def add_randomcard(self,card):
-	#         player_deck.add_card(dealer_deck.deal()) #add the card that the dealer deals
+
 	def num_cards(self):
 		return len(self.cards)
 	# returns the number of cards currently in the deck
@@ -85,24 +91,11 @@ class Deck:
 	def compare_rankssuits(self,position=0):
 		player_deck.sort()
 		if self.cards[position].suit == self.cards[position+1].suit== self.cards[position+2].suit== self.cards[position+3].suit:
-			# print("works")
-			# print(self.cards[position].rank)
-			# print(self.cards[position].rank-1)
-			# print(self.cards[position].rank-2)
-			# print(self.cards[position].rank-3)
-
-			# if self.cards[position].rank == (self.cards[position+1].rank)+1 and self.cards[position].rank== (self.cards[position+2].rank)+2 and self.cards[position].rank== (self.cards[position+3].rank)+3:
-			# 	return True
-			# if self.cards[position].rank == (self.cards[position+1].rank)-1 and self.cards[position].rank== (self.cards[position+2].rank)-2 and self.cards[position].rank== (self.cards[position+3].rank)-3:
-			# 	return True
-
-
-			# if self.cards[position].rank+1 == self.cards[position+1].rank and self.cards[position].rank+2== self.cards[position+2].rank and self.cards[position].rank+3== self.cards[position+3].rank:
-			# 	return True
+	# if all suits are equal and ranks are in ascending and decending order
 			if self.cards[position].rank-1 == self.cards[position+1].rank and self.cards[position].rank-2== self.cards[position+2].rank and self.cards[position].rank-3== self.cards[position+3].rank:
 				return True
-
 		return False
+
 	# for printing out all the cards in the deck in a nice way
 	def __str__(self):
 		result = ''
@@ -154,10 +147,14 @@ def userchoice():
 	print("\nYour Hand:")
 	player_deck.selectionSort()
 	print(player_deck)
+
 def removecard_fromuser(cardtoremove):
 	removed_cards.add_card(player_deck.deal(cardtoremove-1))
+
 def removecard():
 	removed_cards.add_card(dealer_deck.deal())
+
+
 print("\nINSTRUCTIONS: This is the game rummy. The goal of this game is to get a 4-card sequence before you run out of cards.\n There are two types of seuqences:")
 print("1: All the ranks are equal. Example: 4♠,4♥,4♣,4♦ or Kings♠,Kings♥,Kings♣,Kings♦ ")
 print("2: The suits are the same and the ranks are in ascending or decending order. Example: 5♠,6♠,7♠,8♠  or Kings♦,Queens♦,Jack♦,10♦")
@@ -165,6 +162,8 @@ print("Rule: You are only allowed to have 4 cards at a time, so every time a car
 player_deck.selectionSort()
 print("\nYOUR HAND")
 print(player_deck)
+
+
 while True:
 	if dealer_deck==False:
 		print("You have run out of cards!")
@@ -175,8 +174,6 @@ while True:
 	print("\nYour Hand:")
 	player_deck.selectionSort()
 	print(player_deck)
-	# if checking_deck.compare_rankssuits()==True:
-	# 	print("YES")
 	if player_deck.compare_ranks()==True:
 		print("You have won!")
 		break
