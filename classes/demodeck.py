@@ -16,7 +16,7 @@ class Deck:
 	# if 0 (or any positive number) is passed, an empty deck will be created
 	def __init__(self, full_deck=-1):
 		if full_deck == -1:
-			suits = ["♠","♥","♣","♦"]
+			suits = ["♤","♡","♧","♢"]
 			self.cards = [Card(rank, suit) for rank in range(1, 14) for suit in suits]
 			# shuffle by default; remove if you want manual shuffling to occur
 			self.shuffle()
