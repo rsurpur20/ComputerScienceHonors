@@ -2,6 +2,7 @@
 # Jan 8,2019
 # i found this helpful for my while loop https://stackoverflow.com/questions/42107249/how-to-add-exception-to-random-randint-in-python
 # I also spoke to Daniel about the switch for loop
+# OMH
 
 # You are a game show contestant. There are three boxes in front of you to choose from, 2 of which hold pennies and one of which holds keys to a brand new car!! You will play by first picking a box at random. The host will then reveal pennies in one of the doors you didn't choose. Then, when there are 2 options left, you can choose to switch your chosen box, if you want, before your prize is revealed.
 # Before coding a simulation, consider whether you think it is better to switch your chosen box or not, or if it even matters. Write your thoughts down in comments at the top of your program.
