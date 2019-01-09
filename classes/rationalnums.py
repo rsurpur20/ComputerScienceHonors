@@ -27,13 +27,13 @@ class RationalNumber:
         # other.d=2
         # self.d=2
         # other.d=1
-		n = (self.n/other.d) * (self.d/other.n)
+		n = self.n*other.n
 		d = self.d*other.d
 		return RationalNumber(n, d)
 
 	def __truediv__(self, other):
-		n = (self.n*other.d) / (self.d*other.n)
-		d = self.d*other.d
+		n = self.n*other.d
+		d = self.d*other.n
 		return RationalNumber(n, d)
 
 	# complete this first!
@@ -45,10 +45,10 @@ class RationalNumber:
 def main():
 	a = RationalNumber(1, 2) #1/2
 	b = RationalNumber(1, 3) #1/3
-	# print(a) # 1/2
-	# print(b) # 1/3
-	# print(a+b) # 5/6
-	# print(a-b) # 1/6
+	print(a) # 1/2
+	print(b) # 1/3
+	print(a+b) # 5/6
+	print(a-b) # 1/6
 	print(a*b) # 1/6
 	print(a/b) # 3/2
 

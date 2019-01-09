@@ -91,6 +91,7 @@ class Deck:
 	def compare_rankssuits(self,position=0):
 		player_deck.sort()
 		if self.cards[position].suit == self.cards[position+1].suit== self.cards[position+2].suit== self.cards[position+3].suit:
+			# print("yes")
 	# if all suits are equal and ranks are in ascending and decending order
 			if self.cards[position].rank-1 == self.cards[position+1].rank and self.cards[position].rank-2== self.cards[position+2].rank and self.cards[position].rank-3== self.cards[position+3].rank:
 				return True
