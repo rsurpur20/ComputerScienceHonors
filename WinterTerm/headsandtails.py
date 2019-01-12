@@ -1,6 +1,7 @@
 # goal, flip a coin 10 trials (Each trial is 10 flips) and count how many times you get heads
 import random
 from collections import Counter
+import matplotlib.pyplot as plt
 list=[]
 
 for a in range(10000):
@@ -14,8 +15,12 @@ for a in range(10000):
         i+=1
     list.append(headscount)
     a+=1
-print(list)
+# print(list)
 list1=Counter(list)
 print(list1)
+# plotting information
+plt.plot(list1)
+plt.show()
+
 
 # https://www.geeksforgeeks.org/counters-in-python-set-2-accessing-counters/
