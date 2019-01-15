@@ -13,7 +13,9 @@ lose=0
 numgames=10
 # each game is played 100 times, should be getting a logarithmic graph
 for i in range(1,numgames+1):
-    for a in range(1,100):
+    win=0
+    lose=0
+    for a in range(1,101):
         sum=dice[random.randint(0,5)]+dice[random.randint(0,5)]
         print("sum", sum)
         # option 1
@@ -39,10 +41,13 @@ for i in range(1,numgames+1):
                     print("lose")
                     break
 
-        win_percentage=(win)
-        print("the chance of winning in "+str(i) +" games:"+str(win_percentage)+"%")
-        plt.plot(i,win_percentage,'b^')
+
         a+=1
+    # win_percentage=(win)
+    print("**********************win"+str(win))
+    # print("the chance of winning in "+str(i) +" games:"+str(win)+"%")
+    plt.plot(i,win,'m^')
+    plt.ylim(0,50)
     i=i+1
 # 0-num games should be the x axis and win percentage is your y axis
 plt.show()
