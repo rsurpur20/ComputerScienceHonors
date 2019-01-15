@@ -10,7 +10,7 @@ import matplotlib.pyplot as plt
 dice=[1,2,3,4,5,6]
 win=0
 lose=0
-numgames=10
+numgames=100
 # each game is played 100 times, should be getting a logarithmic graph
 for i in range(1,numgames+1):
     win=0
@@ -47,7 +47,7 @@ for i in range(1,numgames+1):
     print("**********************win"+str(win))
     # print("the chance of winning in "+str(i) +" games:"+str(win)+"%")
     plt.plot(i,win,'m^')
-    plt.ylim(0,50)
+    plt.ylim(0,100)
     i=i+1
 # 0-num games should be the x axis and win percentage is your y axis
 plt.show()
